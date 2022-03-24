@@ -1,4 +1,4 @@
-package com.example.accessingdatamongodb;
+package com.example.mongodbspringexample;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
