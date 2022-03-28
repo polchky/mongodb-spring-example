@@ -10,4 +10,9 @@ public class MongoConfig extends AbstractMongoClientConfiguration {
     protected String getDatabaseName() {
         return "spring-demo";
     }
+
+    @Override
+    protected boolean autoIndexCreation() {
+        return true;
+    }
 }
