@@ -5,7 +5,11 @@ import lombok.Setter;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.*;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,6 +31,10 @@ public class Person {
     private int salary;
     @Indexed
     private Integer age;
+    private Address address;
+    private Set<String> hobbies;
+    @DBRef
+    private List<Order> orders;
 
     public Person() {}
 
