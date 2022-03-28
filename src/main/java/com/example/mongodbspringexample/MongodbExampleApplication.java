@@ -16,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import java.time.LocalDateTime;
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 
 @SpringBootApplication
 public class MongodbExampleApplication implements CommandLineRunner {
@@ -53,6 +54,20 @@ public class MongodbExampleApplication implements CommandLineRunner {
 
 		personRepository.save(person);
 		LOG.info(person.toString());
+
+		List<Person> persons;
+
+		LOG.info("Searching by first name and last name:");
+		persons = personRepository.findByFirstNameAndLastName("John", "Smith");
+		LOG.info(persons.toString());
+
+		LOG.info("Searching by city:");
+		persons = personRepository.findByCity("Bern");
+		LOG.info(persons.toString());
+
+		LOG.info("Searching by address city name:");
+		persons = personRepository.findByAddressCityName("Bern");
+		LOG.info(persons.toString());
 	}
 
 }
